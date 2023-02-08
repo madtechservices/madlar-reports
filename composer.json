@@ -1,0 +1,38 @@
+{
+    "name": "tomatophp/tomato-sauce",
+    "type": "library",
+    "description": "a full reports generator plugin to build dashboard reports",
+    "keywords": [
+        "php",
+        "laravel",
+        "template"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "TomatoPHP\\TomatoSauce\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TomatoPHP\\TomatoSauce\\TomatoSauceServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "khaled abodaif",
+            "email": "khaled.abodaif@yahoo.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0.2",
+        "tomato/console-helpers": "^1.0"
+    }
+}
