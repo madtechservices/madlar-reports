@@ -1,4 +1,6 @@
-# Tomato sauce
+![Screenshot](https://github.com/tomatophp/tomato-sause/blob/master/art/screenshot.png)
+
+# Tomato Sauce
 
 a full reports generator plugin to build dashboard reports
 
@@ -7,19 +9,18 @@ a full reports generator plugin to build dashboard reports
 ```bash
 composer require tomatophp/tomato-sauce
 ```
-your install here
 
 ```bash
 php artisan tomato-sauce:install
 ```
 
-## Using
-
-your using here..
-
 ## Support
 
-your support link here..
+you can join our discord server to get support [TomatoPHP](https://discord.gg/VZc8nBJ3ZU)
+
+## Docs
+
+you can check docs of this package on [Docs](https://docs.tomatophp.com/tomato-sause)
 
 ## Changelog
 
@@ -31,7 +32,7 @@ Please see [SECURITY](SECURITY.md) for more information about security.
 
 ## Credits
 
-- [Tomatophp](mailto:khaled.abodaif@yahoo.com)
+- [Khaled Abodaif](https://github.com/khaledAbodaif)
 
 ## License
 

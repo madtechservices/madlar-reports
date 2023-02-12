@@ -38,9 +38,6 @@ class TomatoSauceInstall extends Command
     {
         $this->info('Publish Vendor Assets');
         $this->callSilent('optimize:clear');
-        $this->call('vendor:publish', ['--provider' => 'Tomatophp\TomatoSauce\TomatoSauceServiceProvider']);
-        $this->yarnCommand(['install']);
-        $this->yarnCommand(['build']);
         $this->artisanCommand(["migrate"]);
         $this->artisanCommand(["optimize:clear"]);
         $this->info('tomatoSauce installed successfully.');

@@ -5,7 +5,9 @@
     "keywords": [
         "php",
         "laravel",
-        "template"
+        "report",
+        "dashboard",
+        "tomato"
     ],
     "license": "MIT",
     "autoload": {
@@ -33,6 +35,8 @@
     ],
     "require": {
         "php": "^8.0.2",
-        "tomato/console-helpers": "^1.0"
+        "tomato/console-helpers": "^1.0",
+        "tomato/tomato-admin": "^1.0",
+        "tomato/tomato-php": "^1.0"
     }
 }
