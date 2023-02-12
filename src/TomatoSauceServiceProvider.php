@@ -17,7 +17,7 @@ class TomatoSauceServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        TomatoMenuRegister::registerMenu(ReportMenu::class);
+
         //Register generate command
         $this->commands([
            \TomatoPHP\TomatoSauce\Console\TomatoSauceInstall::class,
@@ -28,22 +28,14 @@ class TomatoSauceServiceProvider extends ServiceProvider
         Blade::component('report-widget', ReportWidgetComponent::class);
         Blade::component('report-chart', ReportChartComponent::class);
 
-        $this->mergeConfigFrom(__DIR__.'/config/tomato-sauce.php', 'tomato-sauce');
 
-        if ($this->app->runningInConsole()) {
-
-            $this->publishes([
-                __DIR__.'/config/tomato-sauce.php' => config_path('report.php'),
-            ], 'config');
-
-        }
         //Register Config file
-//        $this->mergeConfigFrom(__DIR__.'/config/tomato-sauce.php', 'tomato-sauce');
+        $this->mergeConfigFrom(__DIR__.'/../config/tomato-sauce.php', 'tomato-sauce');
 
         //Publish Config
-//        $this->publishes([
-//           __DIR__.'/config/tomato-sauce.php' => config_path('tomato-sauce.php'),
-//        ], 'config');
+        $this->publishes([
+           __DIR__.'/config/tomato-sauce.php' => config_path('tomato-sauce.php'),
+        ], 'tomato-sauce-config');
 
         //Register Migrations
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
@@ -51,14 +43,14 @@ class TomatoSauceServiceProvider extends ServiceProvider
         //Publish Migrations
         $this->publishes([
            __DIR__.'/../database/migrations' => database_path('migrations'),
-        ], 'migrations');
+        ], 'tomato-sauce-migrations');
         //Register views
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'tomato-sauce');
 
         //Publish Views
         $this->publishes([
            __DIR__.'/../resources/views' => resource_path('views/vendor/tomato-sauce'),
-        ], 'views');
+        ], 'tomato-sauce-views');
 
         //Register Langs
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'tomato-sauce');
@@ -66,10 +58,12 @@ class TomatoSauceServiceProvider extends ServiceProvider
         //Publish Lang
         $this->publishes([
            __DIR__.'/../resources/lang' => resource_path('lang/vendor/tomato-sauce'),
-        ], 'lang');
+        ], 'tomato-sauce-lang');
 
         //Register Routes
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+
+        TomatoMenuRegister::registerMenu(ReportMenu::class);
 
     }
 
