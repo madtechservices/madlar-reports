@@ -27,6 +27,14 @@ class ReportController extends Controller
         );
     }
 
+    public function edit(\Modules\Reports\Entities\Report $model): View
+    {
+        return Tomato::get(
+            model: $model,
+            view: 'tomato-sauce::reports.edit',
+        );
+    }
+
     /**
      * @param array $columns
      * @return array
@@ -64,13 +72,18 @@ class ReportController extends Controller
      */
     public function getColumns($table): JsonResponse
     {
-        $casts = config('tomato-sauce.schema')[$table]['columns'] ?? [];
+        $columns = config('tomato-sauce.schema')[$table]['columns'] ?? [];
 
-        if (!empty($casts))
-            $casts = $this->castArray($casts);
+        if (!empty($columns)){
+            $data = [];
+            foreach ($columns as $key => $column) {
+                foreach ($column as $item)
+                $data[] = ["name" => $key.'.'.$item];
+            }
+        }
 
         return response()->json([
-            'model' => $casts,
+            'model' => $data,
         ]);
     }
 
@@ -79,11 +92,11 @@ class ReportController extends Controller
      */
     public function create(): View
     {
-        if (config('report.schema'))
+        if (config('tomato-sauce.schema'))
             return Tomato::create(view: 'tomato-sauce::reports.create');
 
         Toast::title(__("You Need To File Report Config First"))->danger()->autoDismiss(5);
-        return redirect()->route('admin.reports.index');
+        return view('tomato-sauce::reports.index');
 
     }
 

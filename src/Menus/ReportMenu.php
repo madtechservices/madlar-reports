@@ -27,7 +27,7 @@ class ReportMenu extends TomatoMenu
         return [
             Menu::make()
                 ->label("Reports")
-                ->icon("bx bxs-circle")
+                ->icon("bx bxs-report")
                 ->route("admin.reports.index"),
         ];
     }

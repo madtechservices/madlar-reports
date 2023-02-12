@@ -13,10 +13,10 @@
 
             <x-splade-select name="type" label="{{__('Type')}}" placeholder="{{__('which type you want to use')}}">
                 <option value="table">{{__('table')}}</option>
-                <option value="widget">{{(__('widget'))}}</option>
-                <option value="chart">{{(__('chart'))}}</option>
+                <option value="widget">{{__('widget')}}</option>
+                <option value="chart">{{__('chart')}}</option>
             </x-splade-select>
-            <?php $tables = array_keys(config('report.schema'));?>
+            <?php $tables = array_keys(config('tomato-sauce.schema'));?>
             <x-splade-select name="table_name" label="{{__('Table Tame')}}"
                              placeholder="{{__('choose the main table')}}">
                 @foreach($tables as $table)
@@ -43,10 +43,10 @@
 
                 <x-splade-select v-model="repeater.main[key].operator" name="operator" label="{{__('operator')}}"
                                  placeholder="operator">
-                    <option value="<">"<"</option>
-                    <option value=">">">"</option>
-                    <option value="=">"="</option>
-                    <option value="!=">"!="</option>
+                    <option value="<">{{__("<")}}</option>
+                    <option value=">">{{__(">")}}</option>
+                    <option value="=">{{__("=")}}</option>
+                    <option value="!=">{{__("!=")}}</option>
                 </x-splade-select>
                 <x-splade-input v-model="repeater.main[key].value" name="value" class="my-2" type="text"
                                 placeholder="{{__('value')}}" label="{{__('value')}}"/>

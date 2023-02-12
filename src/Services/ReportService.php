@@ -12,7 +12,7 @@ class ReportService
 
     private array $schema;
     private IReportInterface $reportInstance;
-    private array $data;
+    private array $data=[];
 
 
     /**
