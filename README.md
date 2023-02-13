@@ -9,25 +9,6 @@ a full reports generator plugin to build dashboard reports
 ```bash
 composer require tomatophp/tomato-sauce
 ```
-
-after install please run this command
-
-```bash
-php artisan tomato-sauce:install
-```
-
-after install please copy this to your app.js 
-
-```js
-import charts from "../../packages/tomatophp/tomato-sauce/resources/js/charts.vue";
-```
-
-and after `createApp()`
-
-```js
-.component("charts", charts)
-```
-
 ## Support
 
 you can join our discord server to get support [TomatoPHP](https://discord.gg/VZc8nBJ3ZU)
