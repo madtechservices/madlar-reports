@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use TomatoPHP\TomatoSauce\Http\Controllers\ReportController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +26,8 @@ Route::middleware(['web','auth', 'splade', 'verified'])->name('admin.')->group(f
     Route::get('admin/reports/create', [ReportController::class, 'create'])->name('reports.create');
     Route::post('admin/reports', [ReportController::class, 'store'])->name('reports.store');
     Route::get('admin/reports/{model}', [ReportController::class, 'show'])->name('reports.show');
-    Route::get('admin/reports/{model}/edit', [ReportController::class, 'edit'])->name('reports.edit');
-    Route::post('admin/reports/{model}', [ReportController::class, 'update'])->name('reports.update');
+    //TODO: to use on update method
+    // Route::get('admin/reports/{model}/edit', [ReportController::class, 'edit'])->name('reports.edit');
+    // Route::post('admin/reports/{model}', [ReportController::class, 'update'])->name('reports.update');
     Route::delete('admin/reports/{model}', [ReportController::class, 'destroy'])->name('reports.destroy');
 });

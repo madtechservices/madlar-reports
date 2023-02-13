@@ -38,6 +38,7 @@ class TomatoSauceInstall extends Command
     {
         $this->info('Publish Vendor Assets');
         $this->callSilent('optimize:clear');
+        $this->yarnCommand(["add", "chart.js", "vue-chartjs"]);
         $this->artisanCommand(["migrate"]);
         $this->artisanCommand(["optimize:clear"]);
         $this->info('tomatoSauce installed successfully.');

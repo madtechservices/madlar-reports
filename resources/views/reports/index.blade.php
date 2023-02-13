@@ -8,20 +8,29 @@
         </Link>
     </x-slot>
 
+    <x-tomato-sauce />
 
     <div class="pb-12" v-cloak>
         <div class="mx-auto">
-            @if(\Modules\Reports\Entities\Report::count())
+            @if(\TomatoPHP\TomatoSauce\Models\Report::count())
             <x-splade-table :for="$table" striped>
+                <x-splade-cell is_active>
+                    @if($item->is_active)
+                        <x-heroicon-s-check-circle class="text-green-500 w-8 h-8"/>
+                    @else
+                        <x-heroicon-s-x-circle class="text-red-500 w-8 h-8"/>
+                    @endif
+                </x-splade-cell>
                 <x-splade-cell actions>
                     <div class="flex justify-start">
 
-{{--                        <Link href="/admin/reports/{{ $item->id }}/edit" class="px-2 text-yellow-400" >--}}
-{{--                            <div class="flex justify-start space-x-2">--}}
-{{--                                <x-heroicon-s-pencil class="h-4 w-4 ltr:mr-2 rtl:ml-2"/>--}}
-{{--                                <span>{{trans('tomato-admin::global.crud.edit')}}</span>--}}
-{{--                            </div>--}}
-{{--                        </Link>--}}
+                        {{-- TODO: to handel the edit action --}}
+                        {{-- <Link href="/admin/reports/{{ $item->id }}/edit" class="px-2 text-yellow-400" >
+                            <div class="flex justify-start space-x-2">
+                                <x-heroicon-s-pencil class="h-4 w-4 ltr:mr-2 rtl:ml-2"/>
+                                <span>{{trans('tomato-admin::global.crud.edit')}}</span>
+                            </div>
+                        </Link> --}}
                         <Link href="/admin/reports/{{ $item->id }}"
                               confirm="{{trans('tomato-admin::global.crud.delete-confirm')}}"
                               confirm-text="{{trans('tomato-admin::global.crud.delete-confirm-text')}}"

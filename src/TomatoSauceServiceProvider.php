@@ -1,6 +1,6 @@
 <?php
 
-namespace Tomatophp\TomatoSauce;
+namespace TomatoPHP\TomatoSauce;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;

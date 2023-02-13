@@ -36,7 +36,7 @@ class ReportTable extends AbstractTable
      */
     public function for()
     {
-        return \Modules\Reports\Entities\Report::query();
+        return \TomatoPHP\TomatoSauce\Models\Report::query();
     }
 
     /**
@@ -51,58 +51,30 @@ class ReportTable extends AbstractTable
             ->withGlobalSearch(label: trans('tomato-admin::global.search'),columns: ['id',])
             ->bulkAction(
                 label: trans('tomato-admin::global.crud.delete'),
-                each: fn (\Modules\Reports\Entities\Report $model) => $model->delete(),
+                each: fn (\TomatoPHP\TomatoSauce\Models\Report $model) => $model->delete(),
                 after: fn () => Toast::danger('Report Has Been Deleted')->autoDismiss(2),
                 confirm: true
             )
             ->export()
             ->defaultSort('id')
             ->column(
-                label: 'Id',
+                label: __('Id'),
                 key: 'id',
                 sortable: true)
             ->column(
-                label: 'Page_name',
-                key: 'page_name',
-                sortable: true)
-            ->column(
-                label: 'Report_name',
+                label: __('Name'),
                 key: 'report_name',
                 sortable: true)
             ->column(
-                label: 'Type',
+                label: __('Type'),
                 key: 'type',
                 sortable: true)
             ->column(
-                label: 'Sort',
-                key: 'sort',
-                sortable: true)
-            ->column(
-                label: 'Table_name',
+                label: __('Table'),
                 key: 'table_name',
                 sortable: true)
             ->column(
-                label: 'Joins',
-                key: 'joins',
-                sortable: true)
-            ->column(
-                label: 'Conditions',
-                key: 'conditions',
-                sortable: true)
-            ->column(
-                label: 'Aggregate',
-                key: 'aggregate',
-                sortable: true)
-            ->column(
-                label: 'Rows_count',
-                key: 'rows_count',
-                sortable: true)
-            ->column(
-                label: 'Fields',
-                key: 'fields',
-                sortable: true)
-            ->column(
-                label: 'Is_active',
+                label: __('Is Active?'),
                 key: 'is_active',
                 sortable: true)
             ->column(key: 'actions',label: trans('tomato-admin::global.crud.actions'))

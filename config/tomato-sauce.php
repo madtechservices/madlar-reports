@@ -11,42 +11,12 @@
 
 return [
     "schema" => [
-        "accounts" => [
+        "users" => [
             "columns" => [
-                "accounts"=> \Illuminate\Support\Facades\Schema::getColumnListing('accounts'),
-                "requests"=> \Illuminate\Support\Facades\Schema::getColumnListing('requests'),
-                "cars"=> \Illuminate\Support\Facades\Schema::getColumnListing('cars'),
-
+                "users"=> \Illuminate\Support\Facades\Schema::getColumnListing('users'),
             ],
             "relationships" => [
-                "cars" => [
-                    "name" =>"cars",
-                    "first" => "cars.account_id",
-                    "second" => "accounts.id",
-                    "columns" => [
-                        ["name" => "quantity", "type" => "integer", "options" => []]
-                    ],
 
-                ],
-                "requests" => [
-                    "name"=>"requests",
-                    "first" => "requests.customer_id",
-                    "second" => "accounts.id",
-                    "columns" => [
-                        ["name" => "quantity", "type" => "integer", "options" => []]
-                    ],
-
-                ],
-            ],
-        ],
-        "requests" => [
-            "columns" => [
-                "requests"=> \Illuminate\Support\Facades\Schema::getColumnListing('requests'),
-            ],
-        ],
-        "cars" => [
-            "columns" => [
-                ["name" => "id", "type" => "integer", "options" => ["countable", "sortable"]]
             ],
         ]
     ]

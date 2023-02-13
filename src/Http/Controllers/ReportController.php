@@ -7,10 +7,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Khaleds\ReportGenerator\Models\Report;
 use ProtoneMedia\Splade\Facades\Toast;
 use TomatoPHP\TomatoPHP\Services\Tomato;
-use function Nette\Utils\data;
+use TomatoPHP\TomatoSauce\Models\Report;
 
 class ReportController extends Controller
 {
@@ -23,17 +22,19 @@ class ReportController extends Controller
         return Tomato::index(
             request: $request,
             view: 'tomato-sauce::reports.index',
-            table: \Modules\Reports\Tables\ReportTable::class,
+            table: \TomatoPHP\TomatoSauce\Tables\ReportTable::class,
         );
     }
 
-    public function edit(\Modules\Reports\Entities\Report $model): View
-    {
-        return Tomato::get(
-            model: $model,
-            view: 'tomato-sauce::reports.edit',
-        );
-    }
+    //TODO: to use on update method
+
+    // public function edit(\TomatoPHP\TomatoSauce\Models\Report $model): View
+    // {
+    //     // $model->fields = $model->fields[0]['label'];
+    //     return view('tomato-sauce::reports.edit', [
+    //         "model" => $model
+    //     ]);
+    // }
 
     /**
      * @param array $columns
@@ -92,6 +93,7 @@ class ReportController extends Controller
      */
     public function create(): View
     {
+
         if (config('tomato-sauce.schema'))
             return Tomato::create(view: 'tomato-sauce::reports.create');
 
@@ -101,10 +103,10 @@ class ReportController extends Controller
     }
 
     /**
-     * @param \Modules\Reports\Http\Requests\Report\ReportStoreRequest $request
+     * @param \TomatoPHP\TomatoSauce\Http\Requests\Report\ReportStoreRequest $request
      * @return RedirectResponse
      */
-    public function store(\Modules\Reports\Http\Requests\Report\ReportStoreRequest $request): RedirectResponse
+    public function store(\TomatoPHP\TomatoSauce\Http\Requests\Report\ReportStoreRequest $request): RedirectResponse
     {
         $sorts = ["widget" => 1, "chart" => 2, "table" => 3];
         $request->validated();

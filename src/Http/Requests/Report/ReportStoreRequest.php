@@ -24,10 +24,9 @@ class ReportStoreRequest extends FormRequest
     public function rules()
     {
         return [
-                        'page_name' => 'nullable|max:255|string',
+            'page_name' => 'nullable|max:255|string',
             'report_name' => 'required|max:255|string',
             'type' => 'required|max:255|string',
-            'sort' => 'required',
             'table_name' => 'required|max:255|string',
             'joins' => 'nullable',
             'conditions' => 'nullable',
