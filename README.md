@@ -1,4 +1,4 @@
-![Screenshot](https://github.com/tomatophp/tomato-sause/blob/master/art/screenshot.png)
+![Screenshot](https://github.com/tomatophp/tomato-sauce/blob/master/art/screenshot.png)
 
 # Tomato Sauce
 
@@ -34,7 +34,7 @@ you can join our discord server to get support [TomatoPHP](https://discord.gg/VZ
 
 ## Docs
 
-you can check docs of this package on [Docs](https://docs.tomatophp.com/tomato-sause)
+you can check docs of this package on [Docs](https://docs.tomatophp.com/plugins/tomato-sauce)
 
 ## Changelog
 
