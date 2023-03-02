@@ -23,12 +23,6 @@ class TomatoSauceServiceProvider extends ServiceProvider
            \TomatoPHP\TomatoSauce\Console\TomatoSauceInstall::class,
         ]);
 
-        Blade::component('tomato-sauce', TomatoSauceComponent::class);
-        Blade::component('report-table', ReportTableComponent::class);
-        Blade::component('report-widget', ReportWidgetComponent::class);
-        Blade::component('report-chart', ReportChartComponent::class);
-
-
         //Register Config file
         $this->mergeConfigFrom(__DIR__.'/../config/tomato-sauce.php', 'tomato-sauce');
 
@@ -69,6 +63,9 @@ class TomatoSauceServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        //you boot methods here
+        Blade::component('tomato-sauce', TomatoSauceComponent::class);
+        Blade::component('report-table', ReportTableComponent::class);
+        Blade::component('report-widget', ReportWidgetComponent::class);
+        Blade::component('report-chart', ReportChartComponent::class);
     }
 }

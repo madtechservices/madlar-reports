@@ -14,10 +14,6 @@ use TomatoPHP\TomatoSauce\Http\Controllers\ReportController;
 |
 */
 
-Route::prefix('reports')->group(function() {
-    Route::get('/', 'ReportsController@index');
-});
-
 Route::middleware(['web','auth', 'splade', 'verified'])->name('admin.')->group(function () {
     Route::get('admin/reports', [ReportController::class, 'index'])->name('reports.index');
     Route::get('admin/reports/api', [ReportController::class, 'api'])->name('reports.api');
