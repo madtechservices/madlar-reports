@@ -28,7 +28,7 @@ class TomatoSauceServiceProvider extends ServiceProvider
 
         //Publish Config
         $this->publishes([
-           __DIR__.'/config/tomato-sauce.php' => config_path('tomato-sauce.php'),
+           __DIR__.'/../config/tomato-sauce.php' => config_path('tomato-sauce.php'),
         ], 'tomato-sauce-config');
 
         //Register Migrations
